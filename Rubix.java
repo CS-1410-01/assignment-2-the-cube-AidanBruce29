@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 public class Rubix {
 
+    static ArrayList <String> stack = new ArrayList<>();
+
     static String[][] cube = {{
         "R","R","R",
         "R","R","R",
@@ -293,7 +295,7 @@ throws IOException
 
     while(proceed){
         String input;
-        if(argsCheck){
+        if(!argsCheck){
             input = reader.readLine();
         }else{
             if(argsRunIndex == args.length){
@@ -304,56 +306,73 @@ throws IOException
                 argsRunIndex++;
             }
         }
+
+
         switch(input){
             case "u":
+            stack.add("u'");
             RubixCube.turnFace(4,"c");
             RubixCube.displayCube();
             break;
-            case "d":
+            case "d":stack.add("d'");
             RubixCube.turnFace(5,"c");
             RubixCube.displayCube();
             break;
             case "r":
+            stack.add("r'");
             RubixCube.turnFace(0,"c");
             RubixCube.displayCube();
             break;
             case "l":
+            stack.add("l'");
             RubixCube.turnFace(2,"c");
             RubixCube.displayCube();
             break;
             case "f":
+            stack.add("f'");
             RubixCube.turnFace(1,"c");
             RubixCube.displayCube();
             break;
             case "b":
+            stack.add("b'");
             RubixCube.turnFace(3,"c");
             RubixCube.displayCube();
             break;
             case "u'":
+            stack.add("u");
             RubixCube.turnFace(4,"cc");
             RubixCube.displayCube();
             break;
             case "d'":
+            stack.add("d");
             RubixCube.turnFace(5,"cc");
             RubixCube.displayCube();
             break;
             case "r'":
+            stack.add("r");
             RubixCube.turnFace(0,"cc");
             RubixCube.displayCube();
             break;
             case "l'":
+            stack.add("l");
             RubixCube.turnFace(2,"cc");
             RubixCube.displayCube();
             break;
             case "f'":
+            stack.add("f");
             RubixCube.turnFace(1,"cc");
             RubixCube.displayCube();
             break;
             case "b'":
+            stack.add("b");
             RubixCube.turnFace(3,"cc");
             RubixCube.displayCube();
             break;
             case "s":
+            for(int i = stack.size(); i>0; i--){
+                System.out.print(stack.get(i-1));
+            }
+            proceed = false;
             break;
             case "q":
             proceed = false;
