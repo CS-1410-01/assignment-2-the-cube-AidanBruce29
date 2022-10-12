@@ -4,6 +4,15 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 
+//Feedback
+// Looks familiar! Great job completing the cube and getting it to work. Everything seems functional and readable
+// and I definitely couldn't find anything wrong with it.
+// 
+// Good Job!
+// 
+// 
+
+
 public class Rubix {
 
     static ArrayList <String> stack = new ArrayList<>();
